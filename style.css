@@ -1,0 +1,106 @@
+/* =================================================================== */
+/* === 1. BÜTÜN SAYFALAR İÇİN GEÇERLİ GENEL AYARLAR === */
+/* (index.html, hakkimda.html, Sosyal.html hepsini etkiler) */
+/* =================================================================== */
+
+body {
+    font-family: sans-serif;
+    text-align: center; /* Yazıların ve menünün genel olarak ortalı durması için */
+    margin: 0;
+    padding: 20px; /* Sayfanın kenarlarında biraz boşluk bırakır */
+}
+
+nav a {
+    margin: 0 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    padding-bottom: 20px;
+    display: inline-block;
+}
+
+
+/* =================================================================== */
+/* === 2. SADECE SOSYAL.HTML SAYFASINA ÖZEL AYARLAR === */
+/* (Bu kodlar diğer sayfaları etkilemez) */
+/* =================================================================== */
+
+/* "Sosyal" sayfasını tam ekran yapıp telefonu ortalamak için kullanılır */
+.social-page {
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+/* =================================================================== */
+/* === 3. DEĞİŞTİREBİLECEĞİN TELEFON STİLLERİ === */
+/* (Bu bölümdeki değişiklikler sadece telefona etki eder) */
+/* =================================================================== */
+
+/* --- SADECE TELEFON BOYUTUNU AYARLAMAK İÇİN BU BÖLÜMÜ DEĞİŞTİR --- */
+.phone-container {
+    position: relative;
+    /* İstediğin gibi oynamak için bu iki değeri değiştir: */
+    width: 650px;
+    height: 600px;
+    /* ---------------------------------------------------- */
+    background-image: url('phoneframe.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+/* Telefonun içindeki ekranın KONUMUNU ayarlar */
+.phone-screen {
+    position: absolute;
+    /* Telefon boyutunu çok değiştirirsen bu yüzdeleri ayarlaman gerekebilir */
+    top: 12%; 
+    left: 6%; 
+    width: 88%; 
+    height: 76%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+}
+
+/* --- KUTUCUKLARIN BOYUTU (SABİT) --- */
+/* Bu bölümü değiştirmediğin sürece kutucukların boyutu değişmez */
+.social-box {
+    width: 80px;
+    height: 80px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-box:hover {
+    transform: scale(1.1);
+}
+
+/* Kutucuk içindeki resmin boyutu (sabit) */
+.social-box img {
+    width: 90px;
+    height: 90px;
+}
+/* --- Ana Sayfa Profil Fotoğrafı Stilleri --- */
+.profile-picture {
+  width: 180px;  /* Fotoğrafın genişliği */
+  height: 180px; /* Fotoğrafın yüksekliği */
+  border-radius: 50%; /* Fotoğrafı yuvarlak yapar */
+  object-fit: cover; /* Resmin orantısını bozmadan daireye sığdırır */
+  border: 4px solid #f0f0f0; /* Etrafına ince bir çerçeve ekler */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Hafif bir gölge efekti */
+  margin-bottom: 20px; /* Altında biraz boşluk bırakır */
+}
