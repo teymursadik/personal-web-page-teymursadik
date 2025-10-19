@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harita</title>
+    
+    <!-- OpenLayers CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@9.2.4/ol.css">
+    
+    <!-- Özel CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hakkimda.html">Hakkımda</a>
+        <a href="Sosyal.html">Sosyal</a>
+        <a href="harita.html">Harita</a>
+    </nav>
+    
+    <h1>Proje Haritası</h1>
+
+    <div id="map"></div>
+
+    <!-- OpenLayers JS -->
+    <script src="https://cdn.jsdelivr.net/npm/ol@9.2.4/dist/ol.js"></script>
+    
+    <!-- Harita kodunuz -->
+    <script>
+        // DOM yüklendikten sonra haritayı oluştur
+        document.addEventListener('DOMContentLoaded', function() {
+            // Harita konteyneri var mı kontrol et
+            if (document.getElementById('map')) {
+                try {
+                    const map = new ol.Map({
+                        target: 'map',
+                        layers: [
+                            new ol.layer.Tile({
+                                source: new ol.source.OSM() // OpenStreetMap katmanı
+                            })
+                        ],
+                        view: new ol.View({
+                            center: ol.proj.fromLonLat([34.0, 39.0]), // Türkiye merkez
+                            zoom: 6
+                        })
+                    });
+                    
+                    console.log('Harita başarıyla oluşturuldu!');
+                } catch (error) {
+                    console.error('Harita oluşturulurken hata:', error);
+                }
+            }
+        });
+    </script>
+<script src="main.js"></script>
+</body>
+</html>
