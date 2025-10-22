@@ -1,10 +1,4 @@
-Kişisel Web Sayfası – Sadık Teymur
-
-Amaç
-
-Bu ödev, öğrencilerin kendi kişisel web sayfalarını tasarlayıp yayınlayarak HTML, CSS ve OpenLayers’a aşinalık kazanmalarına yardımcı olmayı amaçlamaktadır. Bu proje, Hacettepe Üniversitesi’nde GMT458 - Web CBS Uygulamaları dersinin bir parçası olarak tamamlanmıştır.
-
-Temel amaç, yalnızca web teknolojilerini uygulamak değil, aynı zamanda GitHub Pages’da bir web sitesini barındırma ve yönetme konusunda uygulamalı deneyim kazanmaktır.
+ Kişisel Web Sayfası – Sadık Teymur
 
 Proje Bölümleri (HTML Yapısı)
 
@@ -24,7 +18,7 @@ Projenin arayüzü, modern CSS teknikleri kullanılarak tasarlanmıştır.
 
 Duyarlı Tasarım (Responsive Design): Sayfa düzeni, @media sorguları kullanılarak hem masaüstü hem de mobil cihazlar için optimize edilmiştir.
 
-CSS Animasyonları: Kullanıcı deneyimini zenginleştirmek için çeşitli animasyonlar eklenmiştir.
+CSS Animasyonları: Kullanıcı deneyimini zenginleştirmek için çeşitli animasyonlar eklenmiştir:
 
 @keyframes bounce: Sosyal medya ikonları için zıplama efekti.
 
@@ -62,22 +56,19 @@ Sürüm Kontrolü: Git, GitHub
 
 Yapay Zeka Kullanımı
 
-Proje geliştirme sürecinde yapay zekadan  yaklaşık 2 saat kadar yararlanılmıştır.
-Ancak bu destek, yalnızca anlık sözdizimi (syntax) doğrulaması ve küçük düzeltmelerle sınırlı kalmıştır.
+Proje geliştirme sürecinde yapay zekadan yaklaşık 2 saat kadar yararlanılmıştır. Ancak bu destek, yalnızca anlık sözdizimi (syntax) doğrulaması ve küçük düzeltmelerle sınırlı kalmıştır.
 
-Örneğin, unutulan bir CSS özelliğinin doğru yazılışını teyit etmek veya HTML yapısında eksik bir etiketi kontrol etmek gibi kısa süreli danışmalarda bulunulmuştur.
-Projenin genel tasarımı, sayfa düzeni (layout) ve kodun büyük kısmı (%95’ten fazlası) tamamen kendi çalışmamla, ders materyalleri ve kişisel araştırmalarım doğrultusunda hazırlanmıştır.
+Örneğin, unutulan bir CSS özelliğinin doğru yazılışını teyit etmek veya HTML yapısında eksik bir etiketi kontrol etmek gibi kısa süreli danışmalarda bulunulmuştur. Projenin genel tasarımı, sayfa düzeni (layout) ve kodun büyük kısmı (%95’ten fazlası) tamamen kendi çalışmamla, ders materyalleri ve kişisel araştırmalarım doğrultusunda hazırlanmıştır.
 
 Barındırma
 
 Proje, doğrudan GitHub deposundan ücretsiz barındırma sağlayan GitHub Pages kullanılarak yayınlanmıştır.
 
 Bağlantılar:
+
 📁 GitHub Deposu: https://github.com/GMT-458-Web-GIS/personal-web-page-teymursadik.git
 
 🌍 Canlı Web Sitesi: 
-
-
 
 Yazar
 
@@ -88,5 +79,4 @@ Ankara, Türkiye
 
 Notlar
 
-Bu proje,  web tasarımı (HTML/CSS), GitHub sürüm kontrolü ve bir web sitesinin çevrimiçi yayınlanması konusundaki anlayışımı geliştirmeme yardımcı oldu.
-Ayrıca, web teknolojilerini OpenLayers gibi coğrafi görselleştirme araçlarıyla birleştirmek için harika bir fırsattı.
+Bu proje, web tasarımı (HTML/CSS), GitHub sürüm kontrolü ve bir web sitesinin çevrimiçi yayınlanması konusundaki anlayışımı geliştirmeme yardımcı oldu. Ayrıca, web teknolojilerini OpenLayers gibi coğrafi görselleştirme araçlarıyla birleştirmek için harika bir fırsattı.
