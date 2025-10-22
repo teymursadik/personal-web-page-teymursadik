@@ -2,9 +2,9 @@ Kişisel Web Sayfası – Sadık Teymur
 
 Amaç
 
-Bu ödev, öğrencilerin kendi kişisel web sayfalarını tasarlayıp yayınlayarak HTML, CSS ve OpenLayers'a aşinalık kazanmalarına yardımcı olmayı amaçlamaktadır. Bu proje, Hacettepe Üniversitesi'nde GMT458 - Web CBS Uygulamaları dersinin bir parçası olarak tamamlanmıştır.
+Bu ödev, öğrencilerin kendi kişisel web sayfalarını tasarlayıp yayınlayarak HTML, CSS ve OpenLayers’a aşinalık kazanmalarına yardımcı olmayı amaçlamaktadır. Bu proje, Hacettepe Üniversitesi’nde GMT458 - Web CBS Uygulamaları dersinin bir parçası olarak tamamlanmıştır.
 
-Temel amaç, yalnızca web teknolojilerini uygulamak değil, aynı zamanda GitHub Pages'da bir web sitesini barındırma ve yönetme konusunda uygulamalı deneyim kazanmaktır.
+Temel amaç, yalnızca web teknolojilerini uygulamak değil, aynı zamanda GitHub Pages’da bir web sitesini barındırma ve yönetme konusunda uygulamalı deneyim kazanmaktır.
 
 Proje Bölümleri (HTML Yapısı)
 
@@ -20,11 +20,11 @@ Harita (harita.html): OpenLayers kullanılarak entegre edilmiş etkileşimli bir
 
 Temel Özellikler (CSS & Tasarım)
 
-Projenin arayüzü, modern CSS teknikleri kullanılarak tasarlanmıştır:
+Projenin arayüzü, modern CSS teknikleri kullanılarak tasarlanmıştır.
 
 Duyarlı Tasarım (Responsive Design): Sayfa düzeni, @media sorguları kullanılarak hem masaüstü hem de mobil cihazlar için optimize edilmiştir.
 
-CSS Animasyonları: Kullanıcı deneyimini zenginleştirmek için çeşitli animasyonlar eklenmiştir:
+CSS Animasyonları: Kullanıcı deneyimini zenginleştirmek için çeşitli animasyonlar eklenmiştir.
 
 @keyframes bounce: Sosyal medya ikonları için zıplama efekti.
 
@@ -38,9 +38,9 @@ CSS Yetenek Grafiği: Harici bir kütüphane olmadan, sadece HTML ve CSS (Flexbo
 
 OpenLayers Entegrasyonu
 
-harita.html sayfası, OpenLayers kütüphanesi kullanılarak interaktif bir harita içerir:
+Harita sayfası (harita.html), OpenLayers kütüphanesi kullanılarak interaktif bir harita içermektedir.
 
-Kaydırılabilir ve yakınlaştırılabilir temel harita.
+Kaydırılabilir ve yakınlaştırılabilir temel harita (OSM).
 
 Belirli bir konumu gösteren konum işaretleyici (Marker).
 
@@ -48,57 +48,36 @@ Temel harita kontrolleri (Zoom in/out).
 
 Kullanılan Teknolojiler
 
-Kategori
+Web Tasarımı: HTML, CSS
 
-Araçlar / Kütüphaneler
+Haritalama: OpenLayers
 
-Web Tasarımı
+Konseptler: CSS Flexbox, CSS Animasyonları, Responsive Tasarım
 
-HTML5, CSS3
+Coğrafi Bilgi Sistemleri: QGIS, Netcad (Geçmiş tecrübe)
 
-Haritalama
+Programlama: Python (Geçmiş tecrübe)
 
-OpenLayers
-
-Konseptler
-
-CSS Flexbox, CSS Animasyonları, Responsive Tasarım
-
-Coğrafi Bilgi Sistemleri
-
-QGIS, Netcad (Geçmiş tecrübe)
-
-Programlama
-
-Python (Geçmiş tecrübe)
-
-Sürüm Kontrolü
-
-Git, GitHub
+Sürüm Kontrolü: Git, GitHub
 
 Yapay Zeka Kullanımı
 
-Proje geliştirme sürecinde yapay zeka (Gemini) desteğinden çok cüzi (ihmal edilebilir) bir düzeyde yararlanılmıştır.
+Proje geliştirme sürecinde yapay zekadan  yaklaşık 2 saat kadar yararlanılmıştır.
+Ancak bu destek, yalnızca anlık sözdizimi (syntax) doğrulaması ve küçük düzeltmelerle sınırlı kalmıştır.
 
-Yapay zeka kullanımı, bir öğrenme aracı olarak değil, yalnızca anlık sözdizimi (syntax) doğrulaması amacıyla kullanılmıştır. Örneğin, unutulan bir CSS özelliğinin doğru yazılışını teyit etmek gibi çok küçük ve anlık kontroller için danışılmıştır.
-
-Projenin genel tasarımı, HTML yapısı, sayfa düzeni (layout) ve kodun tamamına yakını (%99'u) yapay zeka müdahalesi olmadan, ders materyalleri ve kişisel çaba ile tamamlanmıştır.
+Örneğin, unutulan bir CSS özelliğinin doğru yazılışını teyit etmek veya HTML yapısında eksik bir etiketi kontrol etmek gibi kısa süreli danışmalarda bulunulmuştur.
+Projenin genel tasarımı, sayfa düzeni (layout) ve kodun büyük kısmı (%95’ten fazlası) tamamen kendi çalışmamla, ders materyalleri ve kişisel araştırmalarım doğrultusunda hazırlanmıştır.
 
 Barındırma
 
-Proje, doğrudan GitHub deposundan ücretsiz barındırma sağlayan GitHub Pages kullanılarak yayınlandı.
+Proje, doğrudan GitHub deposundan ücretsiz barındırma sağlayan GitHub Pages kullanılarak yayınlanmıştır.
 
-Öğe
+Bağlantılar:
+📁 GitHub Deposu: https://github.com/GMT-458-Web-GIS/personal-web-page-teymursadik.git
 
-Bağlantı
+🌍 Canlı Web Sitesi: 
 
-📁 Depo
 
-[GitHub Deposu] (https://github.com/GMT-458-Web-GIS/personal-web-page-teymursadik.git)
-
-🌍 Canlı Web Sitesi
-
-[Web Sayfamı Görüntüle]
 
 Yazar
 
@@ -109,4 +88,5 @@ Ankara, Türkiye
 
 Notlar
 
-Bu proje, ön uç web tasarımı (HTML/CSS), GitHub sürüm kontrolü ve bir web sitesinin çevrimiçi yayınlanması konusundaki anlayışımı geliştirmeme yardımcı oldu. Ayrıca, web teknolojilerini OpenLayers gibi coğrafi görselleştirme araçlarıyla birleştirmek için harika bir fırsattı.
+Bu proje,  web tasarımı (HTML/CSS), GitHub sürüm kontrolü ve bir web sitesinin çevrimiçi yayınlanması konusundaki anlayışımı geliştirmeme yardımcı oldu.
+Ayrıca, web teknolojilerini OpenLayers gibi coğrafi görselleştirme araçlarıyla birleştirmek için harika bir fırsattı.
