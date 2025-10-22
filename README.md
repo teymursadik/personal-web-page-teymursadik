@@ -15,8 +15,7 @@ The website consists of *four main sections*, each represented by a separate HTM
 
 The interface is built using *modern CSS techniques* with an emphasis on responsiveness and animation.
 
-### Responsive Design
-The layout is optimized for both desktop and mobile devices using @media queries.
+
 
 ### CSS Animations
 Various animations enhance user experience:
@@ -70,6 +69,7 @@ The project is hosted using *GitHub Pages*, providing free and direct online acc
 
 - *GitHub Repository:*   https://github.com/GMT-458-Web-GIS/personal-web-page-teymursadik.git
 - *Live Website:*      https://teymursadik.github.io/personal-web-page-teymursadik/
+  
 
 ---
 
