@@ -58,9 +58,9 @@ The *Map Page (harita.html)* uses the OpenLayers library to embed an interactive
 
 ## 🤖 Use of Artificial Intelligence
 
-AI assistance was limited to *syntax verification and minor code corrections, totaling about **2 hours* of use.  
+AI assistance was limited to *syntax verification and minor code corrections, totaling about **3 hours* of use.  
 Examples include confirming correct CSS property usage or fixing missing HTML tags.  
-> Over *95% of the project*, including layout design, structure, and code, was completed independently using class materials and personal research.
+> Over *80% of the project*, including layout design, structure, and code, was completed independently using class materials and personal research.
 
 ---
 
@@ -69,7 +69,6 @@ Examples include confirming correct CSS property usage or fixing missing HTML ta
 The project is hosted using *GitHub Pages*, providing free and direct online access.
 
 - *GitHub Repository:* [GMT-458-Web-GIS/personal-web-page-teymursadik]
-- 
 - *Live Website:* 
 
 ---
