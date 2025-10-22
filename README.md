@@ -1,82 +1,92 @@
- Kişisel Web Sayfası – Sadık Teymur
+# 🌐 Personal Web Page – Sadık Teymur
 
-Proje Bölümleri (HTML Yapısı)
+## 📁 Project Structure (HTML Pages)
 
-Web sitesi, 4 ana bölümden (HTML dosyasından) oluşmaktadır:
+The website consists of *four main sections*, each represented by a separate HTML file:
 
-Ana Sayfa (index.html): Ziyaretçiyi karşılayan giriş sayfası.
+- *index.html (Home):* The landing page welcoming visitors.  
+- *hakkımda.html (About):* Includes academic background, interests, and a CSS-based skill graph.  
+- *sosyal.html (Social):* An interactive page designed as a phone interface containing social media links.  
+- *harita.html (Map):* An interactive OpenLayers map page.
 
-Hakkımda (hakkımda.html): Akademik geçmişim, ilgi alanlarım ve CSS ile oluşturulmuş yetenek grafiğim.
+---
 
-Sosyal (Sosyal.html): Sosyal medya linklerimi içeren, telefon tasarımı kullanılmış interaktif bir sayfa.
+## 🎨 Design & CSS Features
 
-Harita (harita.html): OpenLayers kullanılarak entegre edilmiş etkileşimli bir harita.
+The interface is built using *modern CSS techniques* with an emphasis on responsiveness and animation.
 
-Temel Özellikler (CSS & Tasarım)
+### Responsive Design
+The layout is optimized for both desktop and mobile devices using @media queries.
 
-Projenin arayüzü, modern CSS teknikleri kullanılarak tasarlanmıştır.
+### CSS Animations
+Various animations enhance user experience:
+- @keyframes bounce → Bouncing effect for social media icons  
+- @keyframes slideInFromLeft → Sliding animation for the logo on the About page  
+- @keyframes growBar → Growth animation for the skill bars  
 
-Duyarlı Tasarım (Responsive Design): Sayfa düzeni, @media sorguları kullanılarak hem masaüstü hem de mobil cihazlar için optimize edilmiştir.
+### Visual Style
+- Fixed background image (background-attachment: fixed) with matching white text for readability  
+- Consistent modern aesthetic across all pages  
 
-CSS Animasyonları: Kullanıcı deneyimini zenginleştirmek için çeşitli animasyonlar eklenmiştir:
+### Skill Graph
+A CSS-only bar chart created with *HTML + Flexbox*, without any external libraries.
 
-@keyframes bounce: Sosyal medya ikonları için zıplama efekti.
+---
 
-@keyframes slideInFromLeft: Hakkımda sayfasındaki logo için soldan kayma efekti.
+## 🗺 OpenLayers Integration
 
-@keyframes growBar: Yetenek grafiğindeki çubuklar için büyüme animasyonu.
+The *Map Page (harita.html)* uses the OpenLayers library to embed an interactive map:
 
-Modern Kullanıcı Arayüzü: Site genelinde sabit bir arka plan resmi (background-attachment: fixed) ve bu resimle uyumlu beyaz metin renkleri kullanılmıştır.
+- Pan and zoom-enabled base map (OpenStreetMap)  
+- Marker showing a specific location  
+- Basic map controls (zoom in/out)
 
-CSS Yetenek Grafiği: Harici bir kütüphane olmadan, sadece HTML ve CSS (Flexbox) kullanılarak hakkımda.html sayfasında bir çubuk grafik oluşturulmuştur.
+---
 
-OpenLayers Entegrasyonu
+## ⚙ Technologies Used
 
-Harita sayfası (harita.html), OpenLayers kütüphanesi kullanılarak interaktif bir harita içermektedir.
+| Category | Tools / Technologies |
+|-----------|----------------------|
+| *Web Design* | HTML, CSS |
+| *Mapping* | OpenLayers |
+| *Concepts* | CSS Flexbox, Animations, Responsive Design |
+| *GIS Tools* | QGIS, Netcad (prior experience) |
+| *Programming* | Python (prior experience) |
+| *Version Control* | Git, GitHub |
 
-Kaydırılabilir ve yakınlaştırılabilir temel harita (OSM).
+---
 
-Belirli bir konumu gösteren konum işaretleyici (Marker).
+## 🤖 Use of Artificial Intelligence
 
-Temel harita kontrolleri (Zoom in/out).
+AI assistance was limited to *syntax verification and minor code corrections, totaling about **2 hours* of use.  
+Examples include confirming correct CSS property usage or fixing missing HTML tags.  
+> Over *95% of the project*, including layout design, structure, and code, was completed independently using class materials and personal research.
 
-Kullanılan Teknolojiler
+---
 
-Web Tasarımı: HTML, CSS
+## 🌍 Hosting
 
-Haritalama: OpenLayers
+The project is hosted using *GitHub Pages*, providing free and direct online access.
 
-Konseptler: CSS Flexbox, CSS Animasyonları, Responsive Tasarım
+- *GitHub Repository:* [GMT-458-Web-GIS/personal-web-page-teymursadik]
+- 
+- *Live Website:* 
 
-Coğrafi Bilgi Sistemleri: QGIS, Netcad (Geçmiş tecrübe)
+---
 
-Programlama: Python (Geçmiş tecrübe)
+## 👨‍💻 Author
 
-Sürüm Kontrolü: Git, GitHub
+*Sadık Teymur*  
+Geomatics Engineering Student  
+Hacettepe University – Ankara, Turkey  
 
-Yapay Zeka Kullanımı
+---
 
-Proje geliştirme sürecinde yapay zekadan yaklaşık 2 saat kadar yararlanılmıştır. Ancak bu destek, yalnızca anlık sözdizimi (syntax) doğrulaması ve küçük düzeltmelerle sınırlı kalmıştır.
+## 📝 Notes
 
-Örneğin, unutulan bir CSS özelliğinin doğru yazılışını teyit etmek veya HTML yapısında eksik bir etiketi kontrol etmek gibi kısa süreli danışmalarda bulunulmuştur. Projenin genel tasarımı, sayfa düzeni (layout) ve kodun büyük kısmı (%95’ten fazlası) tamamen kendi çalışmamla, ders materyalleri ve kişisel araştırmalarım doğrultusunda hazırlanmıştır.
+This project enhanced my understanding of:
+- HTML/CSS web design fundamentals  
+- Version control via Git & GitHub  
+- Publishing websites online  
 
-Barındırma
-
-Proje, doğrudan GitHub deposundan ücretsiz barındırma sağlayan GitHub Pages kullanılarak yayınlanmıştır.
-
-Bağlantılar:
-
-📁 GitHub Deposu: https://github.com/GMT-458-Web-GIS/personal-web-page-teymursadik.git
-
-🌍 Canlı Web Sitesi: 
-
-Yazar
-
-Sadık Teymur
-Geomatik Mühendisliği Öğrencisi
-Hacettepe Üniversitesi
-Ankara, Türkiye
-
-Notlar
-
-Bu proje, web tasarımı (HTML/CSS), GitHub sürüm kontrolü ve bir web sitesinin çevrimiçi yayınlanması konusundaki anlayışımı geliştirmeme yardımcı oldu. Ayrıca, web teknolojilerini OpenLayers gibi coğrafi görselleştirme araçlarıyla birleştirmek için harika bir fırsattı.
+It also provided a valuable opportunity to integrate *web technologies* with *geospatial visualization tools* such as OpenLayers.
