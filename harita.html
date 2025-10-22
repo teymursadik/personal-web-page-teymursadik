@@ -3,57 +3,603 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harita</title>
+    <title>Harita - Sadık Teymur</title>
     
-    <!-- OpenLayers CSS -->
+    <!-- Harita kütüphaneleri -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@9.2.4/ol.css">
-    
-    <!-- Özel CSS -->
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Harita görünümü */
+        #map {
+            width: 100%;
+            height: 450px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        /* Sayfa içeriği */
+        .page-content {
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Harita ve panel düzeni */
+        .map-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .map-wrapper {
+            flex: 1;
+        }
+        
+        /* Kontrol paneli */
+        .layer-panel {
+            width: 250px;
+            background: #333;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 1px solid #555;
+            color: white;
+        }
+        
+        .layer-panel h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: white;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 8px;
+        }
+        
+        .layer-group {
+            margin-bottom: 15px;
+        }
+        
+        .layer-group label {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .layer-group input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        
+        .layer-buttons {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .layer-buttons button {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #666;
+            border-radius: 4px;
+            background: #444;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .layer-buttons button.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        
+        .color-legend {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #555;
+        }
+        
+        .color-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            font-size: 12px;
+        }
+        
+        .color-box {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+        
+        /* Bilgi penceresi */
+        .ol-popup {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            border: 1px solid #ccc;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            max-width: 200px;
+        }
+        
+        .ol-popup strong {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .ol-popup small {
+            color: #666;
+        }
+        
+        /* Navigasyon stilleri */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #000000;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav a {
+            background-color: transparent;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-family: sans-serif;
+            font-size: 1em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 0 10px;
+            border: 2px solid transparent;
+        }
+
+        nav a:hover {
+            background-color: #6b6868;
+            color: #ffffff;
+            transform: translateY(-2px);
+            border: 2px solid #555;
+        }
+
+        nav a[href="harita.html"] {
+            background: #007bff;
+            border-radius: 4px;
+        }
+
+        /* Yazı stilleri */
+        .page-content h1,
+        .page-content p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+        }
+
+        body {
+            padding-top: 80px;
+        }
+    </style>
 </head>
 <body>
     
+    <!-- Navigasyon menüsü -->
     <nav>
         <a href="index.html">Ana Sayfa</a>
-        <a href="hakkimda.html">Hakkımda</a>
+        <a href="hakkımda.html">Hakkımda</a>
         <a href="Sosyal.html">Sosyal</a>
         <a href="harita.html">Harita</a>
     </nav>
     
-    <h1>Proje Haritası</h1>
+    <!-- Ana içerik -->
+    <div class="page-content">
+        <h1>İşaretli Harita</h1>
+        <p>Evim ile okulum arasındaki ulaşım rotası</p>
+        
+        <div class="map-container">
+            <!-- Harita alanı -->
+            <div class="map-wrapper">
+                <div id="map"></div>
+            </div>
+            
+            <!-- Kontrol paneli -->
+            <div class="layer-panel">
+                <h3>Harita Kontrolleri</h3>
+                
+                <div class="layer-group">
+                    <strong>Harita Türü:</strong>
+                    <div class="layer-buttons">
+                        <button class="active" id="btnOsm">Harita</button>
+                        <button id="btnSatellite">Uydu</button>
+                    </div>
+                </div>
+                
+                <div class="layer-group">
+                    <strong>Katmanlar:</strong>
+                    <label>
+                        <input type="checkbox" id="showRoute" checked> Rotaları Göster
+                    </label>
+                    <label>
+                        <input type="checkbox" id="showStations" checked> Durakları Göster
+                    </label>
+                    <label>
+                        <input type="checkbox" id="showPoints" checked> Evim & Okul
+                    </label>
+                </div>
+                
+                <div class="color-legend">
+                    <strong>Renk Açıklamaları:</strong>
+                    <div class="color-item">
+                        <div class="color-box" style="background: #8B4513;"></div>
+                        <span>Yürüyüş</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-box" style="background: #006400;"></div>
+                        <span>Ankaray (Kurtuluş-Kızılay)</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-box" style="background: #8B0000;"></div>
+                        <span>Metro (Kızılay-Beytepe)</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-box" style="background: #00008B;"></div>
+                        <span>Otobüs (Ring-Okul)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div id="map"></div>
-
-    <!-- OpenLayers JS -->
+    <!-- Harita kütüphanesi -->
     <script src="https://cdn.jsdelivr.net/npm/ol@9.2.4/dist/ol.js"></script>
     
-    <!-- Harita kodunuz -->
     <script>
-        // DOM yüklendikten sonra haritayı oluştur
+        // Harita değişkenleri
+        let osmLayer, satelliteLayer, routeLayer, stationsLayer, pointsLayer;
+
+        // Sayfa yüklendiğinde haritayı oluştur
         document.addEventListener('DOMContentLoaded', function() {
-            // Harita konteyneri var mı kontrol et
             if (document.getElementById('map')) {
                 try {
+                    // Önemli noktalar
+                    const points = [
+                        { 
+                            name: 'EVİM', 
+                            lon: 32.871125,
+                            lat: 39.925341,
+                            description: 'Benim evim - Burada yaşıyorum',
+                            color: '#ff0000'
+                        },
+                        { 
+                            name: 'OKUL', 
+                            lon: 32.733835,
+                            lat: 39.865606,
+                            description: 'Okulum - Eğitim aldığım yer',
+                            color: '#007bff'
+                        }
+                    ];
+
+                    // Yürüyüş rotası
+                    const walkingRoute = [
+                        [32.871125, 39.925341], // Evim
+                        [32.870365, 39.926099], // Ara nokta
+                        [32.869840, 39.926786], // Ara nokta
+                        [32.868780, 39.928283], // Ara nokta
+                        [32.869693, 39.928653]  // Kurtuluş Metro
+                    ];
+
+                    // Tüm rota bölümleri
+                    const routeSegments = [
+                        {
+                            name: 'Yürüme (Ev → Kurtuluş Metro)',
+                            color: '#8B4513',
+                            coordinates: walkingRoute
+                        },
+                        {
+                            name: 'Metro (Kurtuluş → Kızılay)',
+                            color: '#006400',
+                            coordinates: [
+                                [32.869693, 39.928653],
+                                [32.854061, 39.920776]
+                            ]
+                        },
+                        {
+                            name: 'Metro (Kızılay → Beytepe)',
+                            color: '#8B0000',
+                            coordinates: [
+                                [32.854061, 39.920776],
+                                [32.844085, 39.914969],
+                                [32.826970, 39.915328],
+                                [32.807354, 39.910797],
+                                [32.796328, 39.908959],
+                                [32.784586, 39.908382],
+                                [32.765383, 39.907534],
+                                [32.750184, 39.906978],
+                                [32.733147, 39.905601]
+                            ]
+                        },
+                        {
+                            name: 'Yürüme (Beytepe → Ring)',
+                            color: '#8B4513',
+                            coordinates: [
+                                [32.733147, 39.905601],
+                                [32.732910, 39.905101],
+                                [32.733045, 39.904500]
+                            ]
+                        },
+                        {
+                            name: 'Otobüs (Ring → Okul)',
+                            color: '#00008B',
+                            coordinates: [
+                                [32.733045, 39.904500],
+                                [32.733872, 39.897323],
+                                [32.733948, 39.896434],
+                                [32.733637, 39.896425],
+                                [32.733694, 39.895317],
+                                [32.734052, 39.892741],
+                                [32.734913, 39.885418],
+                                [32.735195, 39.882749],
+                                [32.735266, 39.880965],
+                                [32.735059, 39.878958],
+                                [32.734135, 39.875429],
+                                [32.733059, 39.872590],
+                                [32.733120, 39.869965],
+                                [32.733236, 39.864267]
+                            ]
+                        },
+                        {
+                            name: 'Yürüyüş (Otobüs Son Durak → Okul)',
+                            color: '#8B4513',
+                            coordinates: [
+                                [32.733251, 39.864247],
+                                [32.733408, 39.864403],
+                                [32.733420, 39.864654],
+                                [32.733373, 39.865136],
+                                [32.733358, 39.865622],
+                                [32.733553, 39.865635],
+                                [32.733835, 39.865606]
+                            ]
+                        }
+                    ];
+
+                    // Metro durakları
+                    const metroStations = [
+                        { name: 'Kurtuluş Metro', lon: 32.869693, lat: 39.928653, type: 'metro' },
+                        { name: 'Kızılay Metro', lon: 32.854061, lat: 39.920776, type: 'metro' },
+                        { name: 'Necatibey Metro', lon: 32.844085, lat: 39.914969, type: 'metro' },
+                        { name: 'Milli Kütüphane Metro', lon: 32.826970, lat: 39.915328, type: 'metro' },
+                        { name: 'Söğütözü Metro', lon: 32.807354, lat: 39.910797, type: 'metro' },
+                        { name: 'MTA Metro', lon: 32.796328, lat: 39.908959, type: 'metro' },
+                        { name: 'ODTÜ Metro', lon: 32.784586, lat: 39.908382, type: 'metro' },
+                        { name: 'Bilkent Metro', lon: 32.765383, lat: 39.907534, type: 'metro' },
+                        { name: 'Tarım Bakanlığı Metro', lon: 32.750184, lat: 39.906978, type: 'metro' },
+                        { name: 'Beytepe Metro', lon: 32.733147, lat: 39.905601, type: 'metro' },
+                        { name: 'Ring Kalkış Noktası', lon: 32.733045, lat: 39.904500, type: 'ring' }
+                    ];
+
+                    // Temel harita katmanları
+                    osmLayer = new ol.layer.Tile({
+                        source: new ol.source.OSM(),
+                        title: 'OpenStreetMap'
+                    });
+
+                    satelliteLayer = new ol.layer.Tile({
+                        source: new ol.source.XYZ({
+                            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+                            attributions: 'Imagery © Esri, Maxar, Earthstar Geographics'
+                        }),
+                        title: 'Uydu Görüntüsü',
+                        visible: false
+                    });
+
+                    // Noktaları oluştur
+                    const pointFeatures = points.map(point => {
+                        const feature = new ol.Feature({
+                            geometry: new ol.geom.Point(ol.proj.fromLonLat([point.lon, point.lat])),
+                            name: point.name,
+                            description: point.description
+                        });
+                        
+                        feature.setStyle(new ol.style.Style({
+                            image: new ol.style.Circle({
+                                radius: 10,
+                                fill: new ol.style.Fill({ color: point.color }),
+                                stroke: new ol.style.Stroke({
+                                    color: '#ffffff',
+                                    width: 3
+                                })
+                            }),
+                            text: new ol.style.Text({
+                                text: point.name,
+                                offsetY: -25,
+                                fill: new ol.style.Fill({ color: '#000000' }),
+                                stroke: new ol.style.Stroke({ 
+                                    color: '#ffffff', 
+                                    width: 4 
+                                }),
+                                font: 'bold 14px Arial'
+                            })
+                        }));
+                        
+                        return feature;
+                    });
+
+                    // Durakları oluştur
+                    const stationFeatures = metroStations.map(station => {
+                        const feature = new ol.Feature({
+                            geometry: new ol.geom.Point(ol.proj.fromLonLat([station.lon, station.lat])),
+                            name: station.name,
+                            description: station.type === 'ring' ? 'Ring Otobüs Kalkış Noktası' : 'Metro Durağı'
+                        });
+                        
+                        const color = station.type === 'ring' ? '#00008B' : '#006400';
+                        
+                        feature.setStyle(new ol.style.Style({
+                            image: new ol.style.Circle({
+                                radius: 6,
+                                fill: new ol.style.Fill({ color: color }),
+                                stroke: new ol.style.Stroke({
+                                    color: '#ffffff',
+                                    width: 2
+                                })
+                            })
+                        }));
+                        
+                        return feature;
+                    });
+
+                    // Rotaları oluştur
+                    const routeFeatures = routeSegments.map(segment => {
+                        const feature = new ol.Feature({
+                            geometry: new ol.geom.LineString(
+                                segment.coordinates.map(coord => ol.proj.fromLonLat(coord))
+                            ),
+                            name: segment.name,
+                            description: segment.name
+                        });
+
+                        feature.setStyle(new ol.style.Style({
+                            stroke: new ol.style.Stroke({
+                                color: segment.color,
+                                width: 6,
+                                lineDash: segment.name.includes('Yürüme') || segment.name.includes('Yürüyüş') ? [5, 10] : []
+                            })
+                        }));
+
+                        return feature;
+                    });
+
+                    // Vektör katmanları
+                    pointsLayer = new ol.layer.Vector({
+                        source: new ol.source.Vector({
+                            features: pointFeatures
+                        }),
+                        title: 'Evim & Okul'
+                    });
+
+                    stationsLayer = new ol.layer.Vector({
+                        source: new ol.source.Vector({
+                            features: stationFeatures
+                        }),
+                        title: 'Duraklar'
+                    });
+
+                    routeLayer = new ol.layer.Vector({
+                        source: new ol.source.Vector({
+                            features: routeFeatures
+                        }),
+                        title: 'Rotalar'
+                    });
+
+                    // Haritayı oluştur
                     const map = new ol.Map({
                         target: 'map',
-                        layers: [
-                            new ol.layer.Tile({
-                                source: new ol.source.OSM() // OpenStreetMap katmanı
-                            })
-                        ],
+                        layers: [osmLayer, satelliteLayer, routeLayer, stationsLayer, pointsLayer],
                         view: new ol.View({
-                            center: ol.proj.fromLonLat([34.0, 39.0]), // Türkiye merkez
-                            zoom: 6
+                            center: ol.proj.fromLonLat([32.80248, 39.89547]),
+                            zoom: 12
                         })
                     });
+
+                    // Bilgi penceresi
+                    const popupElement = document.createElement('div');
+                    popupElement.className = 'ol-popup';
                     
-                    console.log('Harita başarıyla oluşturuldu!');
+                    const popup = new ol.Overlay({
+                        element: popupElement,
+                        positioning: 'bottom-center',
+                        stopEvent: false,
+                        offset: [0, -15]
+                    });
+                    map.addOverlay(popup);
+
+                    // Tıklama olayı
+                    map.on('click', function(evt) {
+                        const feature = map.forEachFeatureAtPixel(evt.pixel, function(feature) {
+                            return feature;
+                        });
+
+                        if (feature && feature.get('name')) {
+                            const coordinate = evt.coordinate;
+                            const name = feature.get('name');
+                            const description = feature.get('description');
+                            
+                            popupElement.innerHTML = `
+                                <strong>${name}</strong><br>
+                                <small>${description}</small>
+                            `;
+                            popup.setPosition(coordinate);
+                        } else {
+                            popup.setPosition(undefined);
+                        }
+                    });
+
+                    // Fare imleci değişimi
+                    map.on('pointermove', function(evt) {
+                        const pixel = map.getEventPixel(evt.originalEvent);
+                        const hit = map.hasFeatureAtPixel(pixel);
+                        map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+                    });
+
+                    // Kontrol butonları
+                    document.getElementById('btnOsm').addEventListener('click', function() {
+                        osmLayer.setVisible(true);
+                        satelliteLayer.setVisible(false);
+                        this.classList.add('active');
+                        document.getElementById('btnSatellite').classList.remove('active');
+                    });
+
+                    document.getElementById('btnSatellite').addEventListener('click', function() {
+                        osmLayer.setVisible(false);
+                        satelliteLayer.setVisible(true);
+                        this.classList.add('active');
+                        document.getElementById('btnOsm').classList.remove('active');
+                    });
+
+                    // Katman kontrolleri
+                    document.getElementById('showRoute').addEventListener('change', function(e) {
+                        routeLayer.setVisible(e.target.checked);
+                    });
+
+                    document.getElementById('showStations').addEventListener('change', function(e) {
+                        stationsLayer.setVisible(e.target.checked);
+                    });
+
+                    document.getElementById('showPoints').addEventListener('change', function(e) {
+                        pointsLayer.setVisible(e.target.checked);
+                    });
+
+                    // Haritayı tüm elementlere sığdır
+                    const extent = new ol.extent.createEmpty();
+                    ol.extent.extend(extent, pointsLayer.getSource().getExtent());
+                    ol.extent.extend(extent, stationsLayer.getSource().getExtent());
+                    ol.extent.extend(extent, routeLayer.getSource().getExtent());
+                    
+                    map.getView().fit(extent, { 
+                        padding: [50, 50, 50, 50],
+                        duration: 1500,
+                        maxZoom: 14
+                    });
+
                 } catch (error) {
                     console.error('Harita oluşturulurken hata:', error);
                 }
             }
         });
     </script>
-<script src="main.js"></script>
+
+    <footer class="site-footer">
+        © 2025 Sadık Teymur
+    </footer>
 </body>
 </html>

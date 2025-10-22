@@ -1,510 +1,459 @@
-/* =================================================================== */
-/* === 1. BÜTÜN SAYFALAR İÇİN GEÇERLİ GENEL AYARLAR === */
-/* (index.html, hakkimda.html, Sosyal.html hepsini etkiler) */
-/* =================================================================== */
-
-body {
-    font-family: sans-serif;
-    text-align: center; /* Yazıların ve menünün genel olarak ortalı durması için */
-    margin: 0;
-    padding: 20px; /* Sayfanın kenarlarında biraz boşluk bırakır */
+/* Kaydırma çubuğunu her zaman göstererek sayfa genişliğinin değişmesini engeller */
+html {
+  overflow-y: scroll; 
 }
-
-nav a {
-    margin: 0 15px;
-    color: #333;
-    text-decoration: none;
-    font-size: 18px;
-    padding-bottom: 20px;
-    display: inline-block;
-}
-
-
-/* =================================================================== */
-/* === 2. SADECE SOSYAL.HTML SAYFASINA ÖZEL AYARLAR === */
-/* (Bu kodlar diğer sayfaları etkilemez) */
-/* =================================================================== */
-
-/* "Sosyal" sayfasını tam ekran yapıp telefonu ortalamak için kullanılır */
-.social-page {
-    height: 100vh;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-
-/* =================================================================== */
-/* === 3. DEĞİŞTİREBİLECEĞİN TELEFON STİLLERİ === */
-/* (Bu bölümdeki değişiklikler sadece telefona etki eder) */
-/* =================================================================== */
-
-/* --- SADECE TELEFON BOYUTUNU AYARLAMAK İÇİN BU BÖLÜMÜ DEĞİŞTİR --- */
-    .phone-container {
-    position: relative;
-    /* İstediğin gibi oynamak için bu iki değeri değiştir: */
-    width: 650px;
-    height: 600px;
-    /* ---------------------------------------------------- */
-    background-image: url("telefon.png.png.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    flex-shrink: 0;
-}
-
-/* Telefonun içindeki ekranın KONUMUNU ayarlar */
-.phone-screen {
-    position: absolute;
-    /* Telefon boyutunu çok değiştirirsen bu yüzdeleri ayarlaman gerekebilir */
-    top: 12%; 
-    left: 6%; 
-    width: 88%; 
-    height: 76%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px 0;
-}
-
-/* --- KUTUCUKLARIN BOYUTU (SABİT) --- */
-/* Bu bölümü değiştirmediğin sürece kutucukların boyutu değişmez */
-.social-box {
-    width: 80px;
-    height: 80px;
-    background-color: #f0f0f0;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease-in-out;
-}
-
-.social-box:hover {
-    transform: scale(1.1);
-}
-
-/* Kutucuk içindeki resmin boyutu (sabit) */
-.social-box img {
-    width: 70px;
-    height: 70px;
-}
-/* --- Ana Sayfa Profil Fotoğrafı Stilleri --- */
-.profile-picture {
-  width: 180px;  /* Fotoğrafın genişliği */
-  height: 180px; /* Fotoğrafın yüksekliği */
-  border-radius: 50%; /* Fotoğrafı yuvarlak yapar */
-  object-fit: cover; /* Resmin orantısını bozmadan daireye sığdırır */
-  border: 4px solid #f0f0f0; /* Etrafına ince bir çerçeve ekler */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Hafif bir gölge efekti */
-  margin-bottom: 20px; /* Altında biraz boşluk bırakır */
-}
-/* --- Navigasyon Menüsünü Sağ Üste Konumlandırma --- */
-
-nav {
-  position: absolute; /* Elementi sayfa akışından bağımsız konumlama */
-  top: 20px;          /* Sayfanın üstünden 20 piksel aşağıda */
-  right: 20px;         /* Sayfanın sağından 20 piksel içeride */
-}
-
-/* Linkler arasındaki boşluğu ayarlamak için */
-nav a {
-  margin-left: 15px; /* Her linkin soluna boşluk ekler */
-  font-size: 18px;   /* Yazı boyutunu biraz büyütelim */
-  color: #333;      /* Link rengi */
-  text-decoration: none; /* Alt çizgiyi kaldırır */
-}
-
-/* --- Navigasyon Butonları için Yukarı Kayma Animasyonu --- */
-
-nav a {
-  display: inline-block; /* transform özelliğinin çalışması için */
-  color: #333;
-  background-color: #f0f0f0;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 8px 15px;
-  margin-left: 10px;
-  border-radius: 20px; /* Kenarları yuvarlak yapar */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Hafif gölge */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* İki özelliğin geçişi */
-}
-
-/* Fare üzerine gelince butonu yukarı kaydırıp gölgeyi büyütüyoruz */
-nav a:hover {
-  transform: translateY(-5px); /* 5 piksel yukarı kaydırır */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Gölgeyi daha belirgin yapar */
-}
-
-/* --- Ana Sayfa Tanıtım Metni Stili --- */
-.intro-text {
-  font-size: 1.1em; /* Yazı boyutunu biraz büyütür */
-  color: var(--yazi-rengi); /* DEĞİŞİKLİK BURADA: Sabit renk yerine değişken kullanıldı */
-  max-width: 600px; /* Yazının çok fazla yayılmasını engeller */
-  margin: 20px auto; /* Üstünde ve altında boşluk bırakır, yatayda ortalar */
-  line-height: 1.6;  /* Satır aralığını artırarak okunabilirliği kolaylaştırır */
-}
-
-/* --- Harita Sayfası Stilleri --- */
-#map {
-  width: 90%; /* Sayfanın genişliğinin %90'ını kaplasın */
-  max-width: 900px; /* Ama en fazla 900px genişlesin */
-  height: 550px; /* Yüksekliği 550px olsun */
-  margin: 20px auto; /* Üstten alttan boşluk ve yatayda ortalama */
-  border: 3px solid #ddd;
-  border-radius: 8px; /* Kenarları hafif yuvarlak yapar */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-}
-/* --- Karanlık Mod Stilleri --- */
-
-/* :root ile renkleri değişken olarak tanımlıyoruz, yönetimi kolaylaşır */
+/* --- Renk Değişkenleri (Tüm site renkleri buradan yönetilir) --- */
 :root {
-  --arkaplan-rengi: #ffffff; /* Varsayılan: Beyaz */
-  --yazi-rengi: #1e1e1e;       /* Varsayılan: Siyah */
-  --cerceve-rengi: #ddd;     /* Varsayılan: Açık Gri */
+  --arkaplan-rengi: #ffffff;         
+  --yazi-rengi: #1e1e1e;              
+  --cerceve-rengi: #ddd;              
+  --nav-arkaplan: #000000;           
+  --nav-yazi: #ffffff;               
 }
-
-/* .dark-mode sınıfı body'ye eklendiğinde bu değişkenlerin değeri değişir */
+/* --- Karanlık Mod Renk Değişkenleri --- */
 body.dark-mode {
-  --arkaplan-rengi: #1e1e1e;  /* Koyu Gri */
-  --yazi-rengi: #f0f0f0;         /* Açık Gri */
-  --cerceve-rengi: #444;       /* Koyu Gri Çerçeve */
+  --arkaplan-rengi: #1e1e1e;         
+  --yazi-rengi: #f0f0f0;             
+  --cerceve-rengi: #444;             
+  --nav-arkaplan: #000000;           
+  --nav-yazi: #ffffff;              
 }
-
-/* Varsayılan (Aydınlık Mod) Stilleri */
+/* --- Bütün Sayfalar İçin Geçerli Body Ayarları --- */
 body {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+  /* === YENİ EKLENEN ARKA PLAN RESMİ KODLARI === */
+  background-image: url('arkaplan.jpg.jpg'); 
+  background-repeat: no-repeat;      
+  background-size: cover;          
+  background-position: center;      
+  background-attachment: fixed;   
   background-color: var(--arkaplan-rengi);
-  color: var(--yazi-rengi);
-  /* Renk geçişini yumuşatmak için */
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  padding-top: 80px; 
+  overflow-x: hidden; 
+}
+.page-content {
+  padding: 20px; 
+}
+/* === 2. SİYAH NAVİGASYON BAR (Tüm Sayfalarda Aynı) === */
+nav {
+  position: fixed;                  
+  top: 0;                            
+  left: 0;                            
+  width: 100%;                       
+  height: 60px;                      
+  background-color: var(--nav-arkaplan) !important; 
+  z-index: 1000;                    
+  display: flex;                     
+  justify-content: center;           
+  align-items: center;               
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
+  border: none;                     
+  padding: 0;                         
+  margin: 0;                         
+}
+/* --- Navigasyon Butonları --- */
+nav a {
+  background-color: transparent !important;     
+  color: #ffffff !important;
+  padding: 12px 25px !important;                
+  border-radius: 25px !important;              
+  font-family: sans-serif !important;         
+  font-size: 1em !important;                  
+  font-weight: bold !important;               
+  text-decoration: none !important;             
+  transition: all 0.3s ease !important;       
+  display: inline-block !important;            
+  margin: 0 10px !important;                    
+  border: 2px solid transparent !important;    
+}
+/* --- Buton Hover (Üzerine Gelince) Efekti --- */
+nav a:hover {
+  background-color: #7f7d7d !important;         
+  color: #ffffff !important;                  
+  transform: translateY(-2px) !important;      
+  border: 2px solid #555 !important;       
+}
+/* --- Aktif Sayfa Butonu Stili --- */
+nav a.active {
+  background-color: #007BFF !important;       
+  color: #ffffff !important;                  
+}
+/* === 3. SAYFA BAZLI ÖZEL STİLLER === */
+.profile-picture {
+  width: 180px;                      
+  height: 180px;                     
+  border-radius: 50%;                
+  object-fit: cover;                 
+  border: 4px solid #f0f0f0;         
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+  margin-bottom: 20px;               
 }
 
-/* Harita çerçevesinin de modlara uyum sağlaması için */
-#map {
-    border-color: var(--cerceve-rengi);
+/* Tanıtım Yazısı */
+.intro-text {
+  font-size: 1.1em;                  
+ color: #ffffff; 
+  max-width: 600px;                  
+  margin: 20px auto;                 
+  line-height: 1.6;                  
 }
-
-/* Butonun her iki modda da güzel görünmesi için */
-#darkModeToggle {
-  padding: 8px 12px;
-  font-size: 1.2em;
-  border: 1px solid var(--cerceve-rengi);
-  border-radius: 20px;
-  cursor: pointer;
-  background-color: transparent;
-  color: var(--yazi-rengi);
-  position: fixed; /* Sayfada sabit kalması için */
-  top: 20px;
-  left: 20px; /* Sol üst köşe */
-  z-index: 999; /* Diğer elementlerin üstünde kalması için */
-}
-/* =================================================================== */
-/* === Sosyal Medya Butonları için SÜREKLİ Zıplama Animasyonu === */
-/* =================================================================== */
-
-/* 1. Adım: "bounce" adında bir animasyonun adımlarını tanımlıyoruz */
-@keyframes bounce {
-  /* Animasyonun %0, %20, %50, %80 ve %100'lük anlarında... */
-  0%, 20%, 50%, 80%, 100% {
-    /* Buton dikeyde hiç oynamasın (normal konumu) */
-    transform: translateY(0);
-  }
-  /* Animasyonun %40'lık anında... */
-  40% {
-    /* Buton 12 piksel yukarı çıksın (zıplamanın tepe noktası) */
-    transform: translateY(-12px);
-  }
-  /* Animasyonun %60'lık anında... */
-  60% {
-    /* Buton hafifçe geri sekerek 6 piksel yukarı çıksın */
-    transform: translateY(-6px);
-  }
-}
-
-/* 2. Adım: Tanımladığımız animasyonu sosyal medya kutularına uyguluyoruz */
-.social-box {
-  /* Animasyon adı: bounce */
-  /* Bir döngü süresi: 2.5 saniye */
-  /* Tekrar sayısı: infinite (sonsuz) */
-  animation: bounce 1.5s infinite;
-}
-
-
-/* 3. Adım (Daha profesyonel bir görünüm için): Animasyonlara gecikme ekliyoruz */
-/* Bu sayede butonlar aynı anda değil, sırayla zıplar */
-
-/* Telefon ekranı içindeki 2. kutunun animasyonu 0.2 saniye geç başlasın */
-.phone-screen .social-box:nth-of-type(2) {
-  animation-delay: 0.2s;
-}
-
-/* Telefon ekranı içindeki 3. kutunun animasyonu 0.4 saniye geç başlasın */
-.phone-screen .social-box:nth-of-type(3) {
-  animation-delay: 0.4s;
-}
-
-/* --- Harita Sayfası Stilleri --- */
-#map {
-  width: 90%; /* Sayfanın genişliğinin %90'ını kaplasın */
-  max-width: 900px; /* Ama en fazla 900px genişlesin */
-  height: 550px; /* Yüksekliği 550px olsun */
-  margin: 20px auto; /* Üstten alttan boşluk ve yatayda ortalama */
-  border: 3px solid #ddd;
-  border-radius: 8px; /* Kenarları hafif yuvarlak yapar */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-}
-
-
-
-
-/* --- Hakkımda Sayfası Yazı Stili --- */
-/* --- Hakkımda Sayfası Yazı Stili (Animasyonlu) --- */
-.about-text {
-  max-width: 800px;
-  margin: 35px auto;
-  text-align: left;
-  font-size: 1.1em;
-  line-height: 1.7;
-  color: var(--yazi-rengi);
-}
-
-/* ========================================================== */
-/* === HAKKIMDA SAYFASI - SOLA YASLI LOGO DÜZENİ === */
-/* ========================================================== */
-
-/* --- 1. Animasyonları Tanımlama (Aynen Kalıyor) --- */
-
-/* Logo için "Yandan Kayma" Animasyonu */
-@keyframes slideInFromLeft {
-  from { opacity: 0; transform: translateX(-100px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-/* Yazılar için "Aşağıdan Kayma" Animasyonu */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- 2. Sayfa Düzenini Oluşturma --- */
-
-/* Logo ve metni tutan ana kutu */
-.about-container {
-  /* display:flex YOK. Bu sayede yazılar aşağı inmez. */
-  max-width: 5000px; /* Yazıların çok yayılmasını engeller */
-  margin: 40px auto; /* Başlıkla arasını açar ve sayfada ortalar */
-  padding: 0 100px;   /* Kenar boşlukları */
-  overflow: hidden;  /* Float'u temizlemek için */
-}
-
-/* 1. Logo Bölümü (SOLA YASLAMA) */
-.about-logo {
-  float: left; /* Anahtar kural: Logoyu sola yasla */
-  width: 500px;  /* Logonun kaplayacağı genişlik */
-  margin-right: 30px; /* Logonun sağına (yazıların soluna) boşluk ver */
-  margin-bottom: 20px; /* Altına boşluk ver */
-}
-
-/* 2. Metin İçeriği Bölümü (AKILLI KUTU) */
-.about-text-content {
-  /* YAZILARIN DAĞILMASINI ENGELLEYEN ANAHTAR KURAL:
-    Bu kural, metin kutusunun soldaki logoyu tanımasını 
-    ve onun etrafını sarmak yerine sağında bir sütun 
-    olarak kalmasını sağlar.
-  */
-  overflow: auto; 
-}
-
-/* --- 3. Animasyonları Uygulama --- */
-
-/* LOGOYA ANİMASYON UYGULAMA */
-.about-logo img {
-  width: 100%; /* İçinde bulunduğu .about-logo kutusuna sığar */
-  height: auto;
-  
-  /* Animasyonu uygula */
-  animation: slideInFromLeft 1s ease-out;
-  opacity: 0;
-  animation-fill-mode: forwards;
-  animation-delay: 0.1s;
-}
-
-/* YAZILARA ANİMASYON UYGULAMA */
-/* (Bu kısım aynı kalıyor, sadece seçicilerin doğru olduğundan emin ol) */
-.about-text {
-  max-width: 85%;
-  margin: 40px 0;
-  text-align: left;
-  font-size: 1.2em;
-  line-height: 1.5;
-  color: var(--yazi-rengi);
-  
- }
-.about-text strong {
-  color: #007BFF;
-}
-
-/* Paragraflara sırayla gecikme ver */
-.about-text-content .about-text:nth-of-type(1) {
-  animation-delay: 0.2s;
-}
-.about-text-content .about-text:nth-of-type(2) {
-  animation-delay: 0.4s;
-}
-.about-text-content .about-text:nth-of-type(3) {
-  animation-delay: 0.6s;
-}
-.about-text-content .about-text:nth-of-type(4) {
-  animation-delay: 0.8s;
-}
-
-
-/* ========================================================== */
-/* === HAKKIMDA SAYFASI - YETENEK GRAFİĞİ STİLLERİ === */
-/* ========================================================== */
-
-.skills-container {
-  width: 90%;
-  max-width: 700px;
-  margin: 80px auto; /* Sayfada ortalar */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #000000;
-}
-
-.skills-container h2 {
-  text-align: right;
-  font-weight: 300;
-  font-size: 1.8em;
-  color: #000000;
-  margin-bottom: 20px;
-  padding-right: 20px;
-}
-
-.chart-area {
-  display: flex; /* Y ekseni ve barları yan yana koyar */
-  width: 100%;
-  height: 450px; /* Grafiğin toplam yüksekliği */
-  background-color: var(--arkaplan-rengi); /* Karanlık moda uyar */
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* --- Y Ekseni Başlıkları --- */
-.y-axis {
-  display: flex;
-  flex-direction: column; /* Yazıları alt alta sıralar */
-  justify-content: space-between; /* Eşit aralıkla dağıtır */
-  padding-right: 15px;
-  text-align: right;
-  font-size: 0.9em;
-  color: #000000;
-  height: 100%; /* Ana kutunun yüksekliğini alır */
-}
-
-/* --- Barların Ana Kutusu --- */
-.bars-container {
-  display: flex;
-  flex: 1; /* Kalan tüm alanı kapla */
-  justify-content: space-around; /* Barları eşit aralıkla dağıt */
-  align-items: flex-end; /* Barları AŞAĞIDAN HİZALAR (en önemli kural) */
-  height: 100%;
-  border-bottom: 2px solid #eee; /* X ekseni çizgisi */
-  padding-left: 10px;
-}
-
-/* --- Her bir bar öğesi (Çubuk + Yazı) --- */
-.bar-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 15%; /* Her barın genişliği */
-
-  /* === EKLENMESİ GEREKEN İKİ SATIR === */
-
-  /* 1. Kutuya tam yükseklik veriyoruz ki içindeki barın %'si hesaplanabilsin */
-  height: 100%; 
-
-  /* 2. Barı ve etiketi bu tam yükseklikteki kutunun en altına itiyoruz */
-  justify-content: flex-end; 
-}
-
-/* --- Çubuğun Kendisi --- */
-.bar {
-  width: 100%;
-  border-radius: 10px 10px 0 0; /* Üst köşeleri yuvarlak yap */
-  position: relative;
+/* --- Sosyal Sayfası (sosyal.html) Stilleri --- */
+.social-page {
+  min-height: 100vh; 
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  
-  
-  /* === ANİMASYON DÜZELTMESİ BURADA === */
-  
-  /* Barların alttan yukarı büyümesini sağlar (aşağıdan başla) */
-  transform-origin: bottom; 
-  
-  /* Animasyonu uygula: adı 'growBar', süresi '1s' */
-  animation: growBar 1s ease-out;
+  flex-direction: column;
+  box-sizing: border-box;
 }
-/* Yüzde yazısı */
-.percentage {
-  font-size: 1.8em;
-  font-weight: bold;
-  color: white;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+.phone-container {
+  position: relative;               
+  width: 650px;                    
+  height: 600px;                    
+  background-image: url("telefon.png.png.png"); 
+  background-size: contain;          
+  background-repeat: no-repeat;       
+  background-position: center;       
+  flex-shrink: 0;                    
 }
-
-/* Alttaki etiket yazısı */
-.label {
-  margin-top: 10px;
-  font-size: 0.9em;
-  color: var(--yazi-rengi); /* Karanlık moda uyar */
-  text-align: center;
+/* Telefon Ekranı Alanı */
+.phone-screen {
+  position: absolute;                 
+  top: 12%;                         
+  left: 6%;                          
+  width: 88%;                       
+  height: 76%;                       
+  display: flex;                    
+  flex-direction: column;           
+  justify-content: space-around;    
+  align-items: center;               
+  padding: 20px 0;                   
 }
-
-/* --- Barların Büyüme Animasyonu --- */
-@keyframes growBar {
-  from {
-    /* Animasyon %0 dikey ölçekte başlar (görünmez) */
-    transform: scaleY(0); 
-  }
-  to {
-    /* Animasyon %100 dikey ölçekte biter 
-       (yani HTML'de belirtilen kendi yüksekliğine ulaşır) */
-    transform: scaleY(1);
-  }
+/* Sosyal Medya Butonları */
+.social-box {
+  width: 50px;                      
+  height: 50px;                     
+  background-color: #f0f0f0;         
+  border-radius: 20px;               
+  display: flex;                     
+  justify-content: center;           
+  align-items: center;               
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+  transition: transform 0.2s ease-in-out; 
+  animation: bounce 1.5s infinite;   
 }
-
-
-
-/* ========================================================== */
-/* === SOSYAL SAYFASI YAZI RENKLERİ === */
-/* ========================================================== */
-
-/* "Sosyal Medya Hesaplarım" başlığının rengi */
-/* .social-page, bu kuralın sadece Sosyal sayfasındaki h1'i etkilemesini sağlar */
+/* Sosyal Buton Hover Efekti */
+.social-box:hover {
+  transform: scale(1.1);            
+}
+/* Sosyal Buton Resimleri */
+.social-box img {
+  width: 70px;                       
+  height: 70px;                     
+}
+/* Sosyal Sayfa Başlığı */
 .social-page h1 {
-  color: #000000; /* Örnek: Parlak Mavi */
+  color: var(--yazi-rengi);          
+  margin-bottom: 30px;              
+  margin-top: 0;                     
 }
-
-/* "iletişim için tıklayınız" yazısının rengi */
+/* İletişim Yazısı */
 .iletisim-yazisi {
-  color: #5e5459; /* Örnek: Pembe */
-  font-weight: bold; /* Yazıyı kalın yapar (isteğe bağlı) */
+  color: #5e5459;                  
+  font-weight: bold;                 
+}
+/* Harita Konteyneri */
+#map {
+  width: 90%;                       
+  max-width: 900px;                 
+  height: 600px;                    
+  margin: 20px auto;                 
+  border: 3px solid var(--cerceve-rengi); 
+  border-radius: 8px;               
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+/* Hakkımda Konteyneri */
+.about-container {
+  max-width: 1000px;                
+  margin: 40px auto;                
+  padding: 0 20px;                   
+  overflow: hidden;                  
+}
+/* Logo Alanı */
+.about-logo {
+  float: left;                      
+  width: 200px;                    
+  margin-right: 50px;              
+  margin-bottom: 20px;              
+}
+/* Metin İçeriği Konteyneri */
+.about-text-content {
+  overflow: auto;                  
+}
+/* Logo Resmi */
+.about-logo img {
+  width: 100%;                      
+  height: auto;                     
+  animation: slideInFromLeft 1s ease-out; 
+  opacity: 0;                       
+  animation-fill-mode: forwards;    
+  animation-delay: 0.1s;             
+}
+/* Hakkımda Metinleri */
+.about-text {
+  margin: 20px 0;                   
+  text-align: left;                 
+  font-size: 1.1em;                 
+  line-height: 1.6;              
+  color: #ffffff; 
+}
+/* Yetenek Konteyneri */
+.skills-container {
+  width: 90%;                        
+  max-width: 700px;                 
+  margin: 80px auto;                 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #ffffff;         
+}
+/* Yetenek Başlığı */
+.skills-container h2 {
+  text-align: right;               
+  font-weight: 300;                  
+  font-size: 1.8em;                
+  color: #ffffff;         
+  margin-bottom: 20px;               
+  padding-right: 20px;               
+}
+/* Grafik Alanı */
+.chart-area {
+  display: flex;                  
+  width: 100%;                    
+  height: 450px;                     
+  background-color: transparent; 
+  padding: 20px;                    
+  box-sizing: border-box;            
+}
+/* Y Ekseni (Dikey) */
+.y-axis {
+  display: flex;                   
+  flex-direction: column;            
+  justify-content: space-between;   
+  padding-right: 15px;               
+  text-align: right;                
+  font-size: 0.9em;                  
+  color:#ffffff;          
+  height: 100%;                     
+}
+/* Çubuklar Konteyneri */
+.bars-container {
+  display: flex;                     
+  flex: 1;                           
+  justify-content: space-around;    
+  align-items: flex-end;             
+  height: 100%;                     
+  border-bottom: 2px solid #eee;   
+  padding-left: 10px;                
+}
+/* Tekil Çubuk Öğesi */
+.bar-item {
+  display: flex;                   
+  flex-direction: column;           
+  align-items: center;              
+  width: 15%;                        
+  height: 100%;                      
+  justify-content: flex-end;         
+}
+/* Çubuk Grafik */
+.bar {
+  width: 100%;                      
+  border-radius: 10px 10px 0 0;      
+  position: relative;                
+  display: flex;                     
+  justify-content: center;           
+  align-items: center;               
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+  transform-origin: bottom;         
+  animation: growBar 1s ease-out;    
+}
+/* Yüzde Değeri */
+.percentage {
+  font-size: 1.8em;                
+  font-weight: bold;                 
+  color: white;                     
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2); 
+}
+/* Etiket (Yetenek İsmi) */
+.label {
+  margin-top: 10px;                  
+  font-size: 0.9em;                 
+  color: #ffffff;          
+  text-align: center;               
+}
+/* === 4. ANİMASYON TANIMLAMALARI (@keyframes) === */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }   
+  40% { transform: translateY(-12px); }                  
+  60% { transform: translateY(-6px); }                 
+}
+/* Sosyal Buton Animasyon Gecikmeleri */
+.phone-screen .social-box:nth-of-type(2) {
+  animation-delay: 0.2s;           
 }
 
-/* "Sosyal Medya Hesaplarım" başlığının stili */
-.social-page h1 {
-  color: #000000;
-  margin-bottom: 30px; 
-  
-  /* === YENİ EKLENECEK SATIR === */
-  /* Diğer sayfalardaki boşluğu taklit etmek için üst boşluk ekliyoruz */
-  margin-top: 40px; 
+.phone-screen .social-box:nth-of-type(3) {
+  animation-delay: 0.4s;            
 }
+/* --- Soldan Slayt Animasyonu (Logo) --- */
+@keyframes slideInFromLeft {
+  from { 
+    opacity: 0;                      
+    transform: translateX(-100px); 
+  }
+  to { 
+    opacity: 1;                    
+    transform: translateX(0);       
+  }
+}
+/* --- Yukarı Doğru Belirme Animasyonu --- */
+@keyframes fadeInUp {
+  from { 
+    opacity: 0;                    
+    transform: translateY(20px);     
+  }
+  to { 
+    opacity: 1;                     
+    transform: translateY(0);        
+  }
+}
+/* Hakkımda Metin Animasyon Gecikmeleri */
+.about-text-content .about-text:nth-of-type(1) {
+  animation-delay: 0.2s;         
+}
+.about-text-content .about-text:nth-of-type(2) {
+  animation-delay: 0.4s;       
+}
+.about-text-content .about-text:nth-of-type(3) {
+  animation-delay: 0.6s;        
+}
+.about-text-content .about-text:nth-of-type(4) {
+  animation-delay: 0.8s;      
+}
+@keyframes growBar {
+  from { transform: scaleY(0); }     
+  to { transform: scaleY(1); }      
+}
+/* === 4. GLOBAL ELEMENTLER (Karanlık Mod Butonu - NAV İÇİNDE) === */
+#darkModeToggle {
+  background-color: transparent;
+  color: #ffffff; 
+  border: 1px solid #555;
+  padding: 8px 10px; 
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1em; 
+  margin-left: 20px; 
+  line-height: 1; 
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  background-color: #333;
+  border-color: #777;
+}
+/* Karanlık Mod Butonu Hover Efekti */
+#darkModeToggle:hover {
+  background-color: var(--cerceve-rengi); 
+}
+/* === 6. RESPONSIVE TASARIM (Mobil Uyumluluk) === */
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;              
+  }
+  /* Navigasyon Bar Mobil */
+  nav {
+    height: 50px;                    
+  }
+  /* Navigasyon Butonları Mobil */
+  nav a {
+    padding: 8px 15px !important;    
+    font-size: 0.9em !important;     
+    margin: 0 5px !important;       
+  }
+  /* Karanlık Mod Butonu Mobil */
+  #darkModeToggle {
+    top: 60px;                      
+    left: 10px;                    
+    font-size: 1em;                 
+    padding: 6px 10px;               
+  }
+  /* Telefon Konteyneri Mobil */
+  .phone-container {
+    width: 90%;                     
+    height: 500px;                  
+  }
+  /* Sosyal Butonlar Mobil */
+  .social-box {
+    width: 60px;                     
+    height: 60px;                   
+  }
+  /* Sosyal Buton Resimleri Mobil */
+  .social-box img {
+    width: 50px;                   
+    height: 50px;                   
+  }
+}
+/* --- Mobil Boyutu (480px ve altı) --- */
+@media (max-width: 480px) {
+  /* Navigasyon Bar Küçük Mobil */
+  nav {
+    height: 45px;                    
+  }
+  /* Navigasyon Butonları Küçük Mobil */
+  nav a {
+    padding: 6px 10px !important;   
+    font-size: 0.8em !important;     
+    margin: 0 3px !important;     
+  }
+  body {
+    padding-top: 65px;              
+  }
+  /* Karanlık Mod Butonu Küçük Mobil */
+  #darkModeToggle {
+    top: 55px;                    
+    left: 5px;                       
+    font-size: 0.9em;                
+    padding: 5px 8px;                
+  }
+}
+/* === GLOBAL FOOTER (SADECE YAZI - SOL ALT) === */
+.site-footer {
+  position: fixed; 
+  bottom: 10px;   
+  left: 20px;     
+  
+  /* Arka plan, border vs. yok - Sadece yazı stili */
+  color:  #ffffff; 
+  font-size: 0.9em;        
+  opacity: 1;          
+  
+  z-index: 998;           
+  transition: color 0.3s ease; 
+}   
+/* Harita Konteyneri Stilleri */
+#map {
+  width: 90%; 
+  height: 500px; 
+  margin: 20px auto;
+  border: 2px solid #ccc; 
+}
+/* Sosyal Sayfa Başlığı */
+.social-page h1 {
+ color: #ffffff !important;
+ 
+margin-bottom: 30px; margin-top: 0;
+} 
