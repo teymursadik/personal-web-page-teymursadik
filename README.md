@@ -1,5 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/7C3xAGjq)
- Kişisel Web Sayfası – Sadık Teymur
+Kişisel Web Sayfası – Sadık Teymur
 
 Amaç
 
@@ -79,19 +78,11 @@ Git, GitHub
 
 Yapay Zeka Kullanımı
 
-Proje geliştirme sürecinde Gemini (Google) desteğinden çok az düzeyde yararlanılmıştır. Toplam proje geliştirme süresinin tahmini olarak yalnızca %5'lik bir kısmında yapay zeka desteği alınmıştır.
+Proje geliştirme sürecinde yapay zeka (Gemini) desteğinden çok cüzi (ihmal edilebilir) bir düzeyde yararlanılmıştır.
 
-AI kullanımı, bir öğrenme aracı olmaktan çok, bir hata ayıklama (debugging) ve sözdizimi (syntax) doğrulama aracı olarak gerçekleşmiştir.
+Yapay zeka kullanımı, bir öğrenme aracı olarak değil, yalnızca anlık sözdizimi (syntax) doğrulaması amacıyla kullanılmıştır. Örneğin, unutulan bir CSS özelliğinin doğru yazılışını teyit etmek gibi çok küçük ve anlık kontroller için danışılmıştır.
 
-Kullanım, büyük ölçüde aşağıdaki gibi küçük, anlık sorunlarla sınırlı kalmıştır:
-
-Yazılmış bir CSS kuralının neden beklendiği gibi çalışmadığını hızlıca tespit etmek (Örneğin, navigasyon linklerinin renginin !important olmadan neden değişmediği).
-
-Belirli bir CSS özelliği için doğru sözdizimini (syntax) hızlıca hatırlamak.
-
-Yetenek grafiğinin şeffaf (transparent) arka plana sahip olması için hangi özelliğin (background-color) kullanılması gerektiğini teyit etmek.
-
-Projenin genel tasarımı, HTML yapısı, sayfa düzeni (layout) ve kodun büyük çoğunluğu (%95'i) yapay zeka müdahalesi olmadan, ders materyalleri ve kişisel çaba ile tamamlanmıştır.
+Projenin genel tasarımı, HTML yapısı, sayfa düzeni (layout) ve kodun tamamına yakını (%99'u) yapay zeka müdahalesi olmadan, ders materyalleri ve kişisel çaba ile tamamlanmıştır.
 
 Barındırma
 
@@ -107,8 +98,7 @@ Bağlantı
 
 🌍 Canlı Web Sitesi
 
-[Web Sayfamı Görüntüle] (https://KULLANICI-ADIN.github.io/REPO-ADIN/)
-
+[Web Sayfamı Görüntüle]
 
 Yazar
 
@@ -119,4 +109,4 @@ Ankara, Türkiye
 
 Notlar
 
-Bu proje, web tasarımı (HTML/CSS), GitHub sürüm kontrolü ve bir web sitesinin çevrimiçi yayınlanması konusundaki anlayışımı geliştirmeme yardımcı oldu. Ayrıca, web teknolojilerini OpenLayers gibi coğrafi görselleştirme araçlarıyla birleştirmek için harika bir fırsattı.
+Bu proje, ön uç web tasarımı (HTML/CSS), GitHub sürüm kontrolü ve bir web sitesinin çevrimiçi yayınlanması konusundaki anlayışımı geliştirmeme yardımcı oldu. Ayrıca, web teknolojilerini OpenLayers gibi coğrafi görselleştirme araçlarıyla birleştirmek için harika bir fırsattı.
